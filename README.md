@@ -1,15 +1,16 @@
-# Mobile Fan Vote (starter)
+# Mobile Fan Voting — connector replacement
 
-A mobile-first voting dashboard with TikTok LIVE event connector. Viewer comments exact housemate name, then sends configured gift within selection window. The server credits matching gift events to that viewer's latest selection.
+Replace `server.js` and `package.json` in the GitHub repository with these files.
 
-## Deploy
+This uses `ttl-live` instead of `tiktok-live-connector` / EulerStream signer.
 
-This needs a Node.js host (not just a static website host). Upload this folder to a Node host, set start command `npm start`, and ensure it uses Node 20+. Open the hosted URL from your phone.
+**Important:** `ttl-live` is an unofficial community library and may fail if TikTok changes its public LIVE protocol. Test with a low-stakes LIVE before relying on voting.
 
-## Setup
-1. Add housemate names in the dashboard.
-2. Enter the TikTok username (no @), gift name (default Rose), vote value, and selection time window.
-3. Connect LIVE while the creator is live.
-4. Viewers comment an exact housemate name and then send the gift.
+## Upload on GitHub from mobile
+1. In the repo, replace `server.js` with the supplied `server.js`.
+2. Replace `package.json` with the supplied `package.json`.
+3. Commit directly to `main`.
+4. Wait for Render to redeploy.
+5. If deploy fails, do not try sending gifts; screenshot the Render build log and share it.
 
-This uses an unofficial reverse-engineered TikTok connector; connection reliability and event delivery are not guaranteed and TikTok may change its protocol. Keep the host running during LIVE. No TikTok passwords/session cookies are requested by this app.
+This preserves the existing API routes and frontend expected by the current dashboard.
